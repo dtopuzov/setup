@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 create_logs_folder() {
     echo "Create log folder at $HOME/logs."
