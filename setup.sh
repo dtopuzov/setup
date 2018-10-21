@@ -134,7 +134,6 @@ install_brew
 "$dir/android/update-android-emulators.sh"
 
 "$dir/node/install-node.sh"
-"$dir/node/install-node-packages.sh"
 
 "$dir/appium/install-appium.sh"
 
