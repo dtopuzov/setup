@@ -5,8 +5,17 @@
 # cocoa pods
 export LANG=en_US.UTF-8
 
-# aliases
-alias emulator='$ANDROID_HOME/emulator/emulator'
-alias adb='$ANDROID_HOME/platform-tools/adb'
-alias avdmanager='$ANDROID_HOME/tools/bin/avdmanager'
-alias sdkmanager='$ANDROID_HOME/tools/bin/sdkmanager'
+# credentials
+export SAUCE_USER=''
+export SAUCE_KEY=''
+
+# android signing options
+export ANDROID_KEYSTORE_PATH=''
+export ANDROID_KEYSTORE_PASS=''
+export ANDROID_KEYSTORE_ALIAS=''
+export ANDROID_KEYSTORE_ALIAS_PASS=''
+
+# ios signing options
+export DEVELOPMENT_TEAM=''
+export DEV_PROVISION=''
+export DISTRIBUTION_PROVISION=''

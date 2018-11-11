@@ -4,7 +4,7 @@ reset_variables() {
     echo "Reset NodeJS variables."
     {
         sed -i '' '/node@/d' $HOME/.bash_profile
-        echo 'export PATH="/usr/local/opt/node@8/bin:$PATH"' >> ~/.bash_profile
+        echo 'export PATH="/usr/local/opt/node@10/bin:$PATH"' >> ~/.bash_profile
         source $HOME/.bash_profile
     } &> "$HOME/logs/install-node.log"
 }
@@ -23,10 +23,11 @@ install() {
         brew uninstall --force node6-lts
         brew uninstall --force node@6
         brew uninstall --force node@8
+        brew uninstall --force node@10
         brew uninstall --force node
 
         # install node
-        brew install node@8 -f
+        brew install node@10 -f
 
         source $HOME/.bash_profile
         node -v
@@ -38,11 +39,11 @@ reset_variables
 source $HOME/.bash_profile
 
 set +e
-$(node -v | grep 8. &> /dev/null)
+$(node -v | grep 10. &> /dev/null)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then
-    echo "NodeJS 8 LTS found."
+    echo "NodeJS 10 LTS found."
 else
     install
 fi

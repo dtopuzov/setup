@@ -52,7 +52,7 @@ clean_brew() {
     echo "y" | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)" || true
 }
 
-if [[ "$FULL_CLEANUP" == "true"* ]]; then
+if [[ "$FORCE_CLEAN" == "true"* ]]; then
     echo "Full clean will be performed!"
     clean_workspace
     clean_brew

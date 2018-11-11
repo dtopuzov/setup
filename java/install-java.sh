@@ -1,3 +1,12 @@
+########################################################
+#
+# This script will install:
+# - Oracle JDK 1.8
+# - Open JDK 11
+# Default in .bash_profile will be `Oracle JDK 1.8`.
+#
+########################################################
+
 #!/usr/bin/env bash
 
 source $HOME/.bash_profile
@@ -9,30 +18,22 @@ reset_variables() {
 }
 
 install_java8() {
-    echo "Install JDK 8."
+    echo "Install Oracle JDK 8."
     {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            brew tap caskroom/versions
-            brew cask uninstall java8 -f
-            brew cask install java8
-        else
-            echo "Not implemented!"
-        fi
+        brew tap caskroom/versions
+        brew cask uninstall java8 -f
+        brew cask install java8
         source $HOME/.bash_profile
         java -version
     } &> $HOME/logs/install-java.logs
 }
 
 install_java11() {
-    echo "Install JDK 11."
+    echo "Install Open JDK 11."
     {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            brew tap caskroom/versions
-            brew cask uninstall java -f
-            brew cask install java
-        else
-            echo "Not implemented!"
-        fi
+        brew tap caskroom/versions
+        brew cask uninstall java -f
+        brew cask install java
         source $HOME/.bash_profile
         java -version
     } &> $HOME/logs/install-java.logs
@@ -50,13 +51,11 @@ else
     install_java8
 fi
 
-# Install Java 11 (only on not parallel machines)
-if [[ "$PARALLEL" != "true"* ]]; then
-    RESULT=$(/usr/libexec/java_home -v 11 2>&1)
-    echo $RESULT | grep 'Unable to find' &> /dev/null
-    if [ $? == 0 ]; then
-        install_java11
-    else
-        echo "JDK 11 found."
-    fi
+# Install Java 11
+RESULT=$(/usr/libexec/java_home -v 11 2>&1)
+echo $RESULT | grep 'Unable to find' &> /dev/null
+if [ $? == 0 ]; then
+    install_java11
+else
+    echo "JDK 11 found."
 fi

@@ -14,7 +14,7 @@ Before running the setup you can optionally clean your machine.
 
 Enable full cleanup (will erase everything):
 ```bash
-export CLEAN=FULL
+export FORCE_CLEAN=true
 ```
 
 Run the script:
@@ -45,6 +45,18 @@ Wait until you see:
 Setup completed!
 ```
 Note that it will take some time.
+
+## Installed Software
+
+List of installed software:
+
+- Homebrew
+- NodeJS (10)
+- Maven 
+- Java (8 and 11)
+- Android SDK (including emulator images)
+- Appium (and all of its dependencies)
+- NativeScript CLI (and all of its dependencies)
 
 ## Troubleshooting
 

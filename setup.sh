@@ -15,7 +15,7 @@ enable_sudo_without_password() {
         echo "$USER can run commands with sudo without password."
     else
         echo "Enable $USER to run commands with sudo without password."
-        if [ $(echo $PASS | wc -c) -ge 3 ]; then
+        if [ $(echo ${PASS} | wc -c) -ge 3 ]; then
             echo "PASS variable is set!"
         else
             echo "PASS variable is NOT set!"
@@ -23,7 +23,7 @@ enable_sudo_without_password() {
         fi
 
         USER=$(whoami)
-        echo $PASS | sudo -kS bash -c 'echo "'$USER' ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)' &> /dev/null
+        echo ${PASS} | sudo -kS bash -c 'echo "'${USER}' ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)' &> /dev/null
 
         sudo cat /etc/sudoers &> /dev/null
         if [ $? == 0 ]; then
@@ -41,9 +41,16 @@ clean_bash_profile() {
     echo "" > $HOME/.bash_profile
 
     if [ ! -f $HOME/.personal.profile ]; then
-        cat "$dir/.personal.profile" > $HOME/.personal.profile
+        echo "Personal profile not found, will use default."
+        cp "$dir/.personal.profile" $HOME/.personal.profile
     fi
+    source $HOME/.personal.profile
+
     cat $HOME/.personal.profile >> $HOME/.bash_profile
+    echo "" >> $HOME/.bash_profile
+    echo "#####################################################################" >> $HOME/.bash_profile
+    echo "#                       Auto Generated Settings                     #" >> $HOME/.bash_profile
+    echo "#####################################################################" >> $HOME/.bash_profile
     echo "" >> $HOME/.bash_profile
 
     source $HOME/.bash_profile
@@ -56,18 +63,17 @@ enable_developer_mode() {
 
 install_brew() {
     set +e
-    $(brew -v | grep 1.7 &> /dev/null)
+    $(brew -v | grep Homebrew &> /dev/null)
     EXIT_CODE=$?
     set -e
-    if [ $EXIT_CODE == 0 ]; then
-        echo "Update homebrew";
+    if [ ${EXIT_CODE} == 0 ]; then
+        echo "Update Homebrew";
         {
             brew update
         } &> "$HOME/logs/update-brew.log"
     else
-        echo "Install homebrew."
+        echo "Install Homebrew."
         {
-            echo "y" | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)" || true
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
             brew -v
             brew update
@@ -89,11 +95,6 @@ install_brew() {
 
 set -e
 dir="$(dirname "$0")"
-
-# source personal.profile
-if [ -f $HOME/.personal.profile ]; then
-    source $HOME/.personal.profile
-fi
 
 # log environment variables
 echo ""
@@ -134,9 +135,7 @@ install_brew
 "$dir/android/update-android-emulators.sh"
 
 "$dir/node/install-node.sh"
-
 "$dir/appium/install-appium.sh"
-
 "$dir/tns/install-nativescript.sh"
 
 echo "Setup completed!"
