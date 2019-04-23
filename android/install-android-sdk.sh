@@ -2,7 +2,7 @@
 
 verify_android_home() {
 	android=$(echo $ANDROID_HOME)
-	if [ $android != "" ]; then
+	if [[ $android != "" ]]; then
 		echo "ANDROID_HOME is set to: $android"
 	else
 		echo "ANDROID_HOME is empty!"
@@ -34,8 +34,6 @@ reset_variables() {
 }
 
 install() {
-    LINUX_DIST="https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip"
-
     if [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Install Android SDK."
         {
@@ -61,7 +59,7 @@ reset_variables
 
 # Install Android SDK only if not available.
 source $HOME/.bash_profile
-if [ -f $ANDROID_HOME/tools/bin/sdkmanager ]; then
+if [[ -f $ANDROID_HOME/tools/bin/sdkmanager ]]; then
     echo "Android SDK found."
 else
     install

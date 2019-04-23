@@ -19,3 +19,9 @@ export ANDROID_KEYSTORE_ALIAS_PASS=''
 export DEVELOPMENT_TEAM=''
 export DEV_PROVISION=''
 export DISTRIBUTION_PROVISION=''
+
+# variables for tests in https://github.com/NativeScript/nativescript-tooling-qa repo
+export EMU_API_23=Nexus5Api23
+export EMU_API_26=Nexus6PApi26
+export EMU_API_27=PixelApi27
+export EMU_API_28=Pixel2Api27

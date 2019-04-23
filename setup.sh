@@ -40,13 +40,13 @@ clean_bash_profile() {
     rm -rf $HOME/.bash_profile
     echo "" > $HOME/.bash_profile
 
-    if [ ! -f $HOME/.personal.profile ]; then
+    if [ ! -f $HOME/.personal_profile ]; then
         echo "Personal profile not found, will use default."
-        cp "$dir/.personal.profile" $HOME/.personal.profile
+        cp "$dir/.personal_profile" $HOME/.personal_profile
     fi
-    source $HOME/.personal.profile
+    source $HOME/.personal_profile
 
-    cat $HOME/.personal.profile >> $HOME/.bash_profile
+    cat $HOME/.personal_profile >> $HOME/.bash_profile
     echo "" >> $HOME/.bash_profile
     echo "#####################################################################" >> $HOME/.bash_profile
     echo "#                       Auto Generated Settings                     #" >> $HOME/.bash_profile
