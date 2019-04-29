@@ -44,7 +44,11 @@ Wait until you see:
 ```bash
 Setup completed!
 ```
-Note that it will take some time.
+
+Notes:
+- It will take some time.
+- Logs are in `$HOME/logs`
+- Do not forget to `source $HOME/.bash_profile` after setup is complete.
 
 ## Installed Software
 
@@ -53,14 +57,7 @@ List of installed software:
 - Homebrew
 - NodeJS (10)
 - Maven 
-- Java (8 and 11)
+- Open JDK 8 and 11 (default is 8)
 - Android SDK (including emulator images)
 - Appium (and all of its dependencies)
 - NativeScript CLI (and all of its dependencies)
-
-## Troubleshooting
-
-Logs of setup are available at 
-```bash
-$HOME/logs
-```

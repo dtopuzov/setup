@@ -1,9 +1,9 @@
 ########################################################
 #
 # This script will install:
-# - Oracle JDK 1.8
+# - Open JDK 1.8
 # - Open JDK 11
-# Default in .bash_profile will be `Oracle JDK 1.8`.
+# Default in .bash_profile will be `Open JDK 1.8`.
 #
 ########################################################
 
@@ -18,7 +18,7 @@ reset_variables() {
 }
 
 install_java8() {
-    echo "Install Oracle JDK 8."
+    echo "Install Open JDK 8."
     {
         brew tap caskroom/versions
         brew cask uninstall java8 -f
@@ -44,7 +44,7 @@ source $HOME/.bash_profile
 
 # Install Java 8
 JAVA_VERSION=$($JAVA_HOME/bin/java -version 2>&1)
-echo $JAVA_VERSION | grep 'java version' | grep '1.8' &> /dev/null
+echo $JAVA_VERSION | grep 'openjdk version' | grep '1.8' &> /dev/null
 if [ $? == 0 ]; then
     echo "JDK 8 found."
 else
