@@ -15,6 +15,12 @@ script:
     - sudo rm -rf /usr/local/Caskroom/*
     - sudo rm -rf /usr/local/share/android-sdk
     - sudo rm -rf /Library/Java/JavaVirtualMachines/*
-    - ./setup.sh
-    - source ~/.bash_profile
-    - node -v
+    - ./java/install-java.sh
+    - ./java/install-maven.sh
+    - ./node/install-node.sh
+    - ./appium/install-appium.sh
+    - ./android/install-android-sdk.sh
+    - ./android/update-android-sdk.sh
+    - ./android/update-android-emulators.sh
+    - ./tns/install-nativescript.sh
+    - tns doctor
