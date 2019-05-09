@@ -17,3 +17,4 @@ script:
     - sudo rm -rf /Library/Java/JavaVirtualMachines/*
     - sudo setup.sh
     - source ~/.bash_profile
+    - node -v
