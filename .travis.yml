@@ -1,0 +1,19 @@
+branches:
+  only:
+    - master
+env:
+  global:
+    - TERM=dumb
+matrix:
+    include:
+    - os: osx
+      env:
+        - BuildiOS="12.1"
+        - Xcode="10.1"
+      osx_image: xcode10.1
+script:
+    - sudo rm -rf /usr/local/Caskroom/*
+    - sudo rm -rf /usr/local/share/android-sdk
+    - sudo rm -rf /Library/Java/JavaVirtualMachines/*
+    - sudo setup.sh
+    - source ~/.bash_profile
