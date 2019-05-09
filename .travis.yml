@@ -15,6 +15,6 @@ script:
     - sudo rm -rf /usr/local/Caskroom/*
     - sudo rm -rf /usr/local/share/android-sdk
     - sudo rm -rf /Library/Java/JavaVirtualMachines/*
-    - sudo setup.sh
+    - ./setup.sh
     - source ~/.bash_profile
     - node -v
