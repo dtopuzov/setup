@@ -54,6 +54,8 @@ install() {
     fi
 }
 
+source $HOME/.bash_profile
+
 # Reset variables
 reset_variables
 
@@ -68,5 +70,6 @@ else
 fi
 
 # Accept Android SDK licenses
+source $HOME/.bash_profile
 echo "Accept Android SDK licenses."
 yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses &> $HOME/logs/install-android-sdk.log

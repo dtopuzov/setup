@@ -20,11 +20,8 @@ install() {
         sudo rm -rf '/usr/local/lib/node_modules'
         rm -rf '$HOME/.npm'
         brew uninstall --force node
-        brew uninstall --force node6-lts
-        brew uninstall --force node@6
         brew uninstall --force node@8
         brew uninstall --force node@10
-        brew uninstall --force node
 
         # install node
         brew install node@10 -f

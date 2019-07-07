@@ -24,6 +24,7 @@ update_images() {
     echo "Update Android emulator images."
     {
         download "--licenses"
+        download "system-images;android-29;google_apis_playstore;x86"
         download "system-images;android-28;google_apis_playstore;x86"
         download "system-images;android-27;google_apis_playstore;x86"
         download "system-images;android-26;google_apis_playstore;x86"
@@ -52,6 +53,7 @@ create() {
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus6PApi26" -k "system-images;android-26;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "PixelApi27" -k "system-images;android-27;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Pixel2Api28" -k "system-images;android-28;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
+        echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Pixel3Api29" -k "system-images;android-29;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
     } &> $HOME/logs/create-android-emulators.logs
 }
 
@@ -69,6 +71,7 @@ configure() {
         configure_avd "Nexus6PApi26" "Nexus6P"
         configure_avd "PixelApi27" "Pixel"
         configure_avd "Pixel2Api28" "Pixel2"
+        configure_avd "Pixel3Api29" "Pixel3"
     } &> $HOME/logs/configure-android-emulators.logs
 }
 

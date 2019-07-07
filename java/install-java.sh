@@ -2,7 +2,7 @@
 #
 # This script will install:
 # - Open JDK 1.8
-# - Open JDK 11
+# - Open JDK 12
 # Default in .bash_profile will be `Open JDK 1.8`.
 #
 ########################################################
@@ -20,16 +20,16 @@ reset_variables() {
 install_java8() {
     echo "Install Open JDK 8."
     {
-        brew tap caskroom/versions
-        brew cask uninstall java8 -f
-        brew cask install java8
+        brew tap adoptopenjdk/openjdk
+        brew cask install adoptopenjdk8
         source $HOME/.bash_profile
         java -version
+        brew untap adoptopenjdk/openjdk
     } &> $HOME/logs/install-java.logs
 }
 
-install_java11() {
-    echo "Install Open JDK 11."
+install_java12() {
+    echo "Install Open JDK 12."
     {
         brew tap caskroom/versions
         brew cask uninstall java -f
@@ -52,10 +52,10 @@ else
 fi
 
 # Install Java 11
-RESULT=$(/usr/libexec/java_home -v 11 2>&1)
+RESULT=$(/usr/libexec/java_home -v 12 2>&1)
 echo $RESULT | grep 'Unable to find' &> /dev/null
 if [ $? == 0 ]; then
-    install_java11
+    install_java12
 else
-    echo "JDK 11 found."
+    echo "JDK 12 found."
 fi
