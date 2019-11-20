@@ -24,7 +24,7 @@ install() {
         brew uninstall --force node@10
 
         # install node
-        brew install node@10 -f
+        brew install node@12 -f
 
         source $HOME/.bash_profile
         node -v
@@ -36,11 +36,11 @@ reset_variables
 source $HOME/.bash_profile
 
 set +e
-$(node -v | grep 10. &> /dev/null)
+$(node -v | grep 12. &> /dev/null)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then
-    echo "NodeJS 10 LTS found."
+    echo "NodeJS 12 LTS found."
 else
     install
 fi

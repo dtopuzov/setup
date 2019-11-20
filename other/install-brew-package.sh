@@ -2,7 +2,7 @@
 
 source $HOME/.bash_profile
 
-TESSERACT_VERSION="4.0"
+TESSERACT_VERSION="4.1"
 
 install_tesseract() {
     set +e

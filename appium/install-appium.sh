@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source $HOME/.bash_profile
-APPIUM_VERSION="1.14"
+APPIUM_VERSION="1.15.1"
 
 install_ios_deps() {
     echo "Install Appium dependencies for iOS."
@@ -56,11 +56,6 @@ install_appium() {
     {
         npm un -g appium -f || true
         npm i -g appium@$APPIUM_VERSION
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            cd /usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent
-            sh Scripts/bootstrap.sh -d || true
-            cd -
-        fi
         appium -v
     } &> "$HOME/logs/install-appium.log"
 }
