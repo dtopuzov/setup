@@ -25,6 +25,7 @@ install() {
 
         # install node
         brew install node@12 -f
+        brew link node@12 -f
 
         source $HOME/.bash_profile
         node -v

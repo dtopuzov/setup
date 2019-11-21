@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-COCOAPODS_VERSION="1.7.3"
+COCOAPODS_VERSION="1.8.4"
 
 install_cocoapods() {
     set +e

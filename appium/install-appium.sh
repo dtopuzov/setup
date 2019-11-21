@@ -44,7 +44,8 @@ install_ios_deploy() {
                 echo "ios-deploy found."
             else
                 npm uninstall -g -f ios-deploy
-                npm install -g -f ios-deploy
+                brew uninstall --ignore-dependencies ios-deploy -f
+                brew install ios-deploy
                 ios-deploy --version
             fi
         } &> "$HOME/logs/install-node-packages.log"
