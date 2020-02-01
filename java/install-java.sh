@@ -1,61 +1,45 @@
+#!/usr/bin/env bash
+
 ########################################################
 #
-# This script will install:
-# - Open JDK 1.8
-# - Open JDK 13
+# This script will install Open JDK 1.8,11 and 13.
 # Default in .bash_profile will be `Open JDK 1.8`.
 #
 ########################################################
+# shellcheck disable=SC1090
+# shellcheck disable=SC2140
+# shellcheck disable=SC2181
 
-#!/usr/bin/env bash
+source "$HOME"/.bash_profile
 
-source $HOME/.bash_profile
-
-reset_variables() {
-    # reset bash profile variables
-    sed -i '' '/JAVA_HOME/d' $HOME/.bash_profile
-    echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)' >> $HOME/.bash_profile
-}
-
-install_java8() {
-    echo "Install Open JDK 8."
+# Install JDKs
+declare -a arr=("1.8" "11" "13")
+for i in "${arr[@]}"; do
+  set +e
+  /usr/libexec/java_home -v "$i" >/dev/null 2>&1
+  EXIT_CODE=$?
+  set -e
+  if [ $EXIT_CODE == 0 ]; then
+    echo "Open JDK $i found."
+  else
+    echo "Install Open JDK $i."
     {
-        brew tap adoptopenjdk/openjdk
-        brew cask install adoptopenjdk8
-        source $HOME/.bash_profile
-        java -version
-        brew untap adoptopenjdk/openjdk
-    } &> $HOME/logs/install-java.logs
-}
+      # Handle Java 1.8 is acutally installed with adoptopenjdk8
+      if [[ "$i" == "1.8" ]]; then
+        i="8"
+      fi
 
-install_java13() {
-    echo "Install Open JDK 13."
-    {
-        brew tap caskroom/versions
-        brew cask uninstall java -f
-        brew cask install java
-        source $HOME/.bash_profile
-        java -version
-    } &> $HOME/logs/install-java.logs
-}
+      brew tap adoptopenjdk/openjdk
+      brew cask install adoptopenjdk"$i" -f
+      brew untap adoptopenjdk/openjdk
+    } &>"$HOME"/logs/install-java"$i".logs
+  fi
+done
 
-reset_variables
-source $HOME/.bash_profile
-
-# Install Java 8
-JAVA_VERSION=$($JAVA_HOME/bin/java -version 2>&1)
-echo $JAVA_VERSION | grep 'openjdk version' | grep '1.8' &> /dev/null
-if [ $? == 0 ]; then
-    echo "JDK 8 found."
-else
-    install_java8
-fi
-
-# Install Java 13
-RESULT=$(/usr/libexec/java_home -v 13 2>&1)
-echo $RESULT | grep 'Unable to find' &> /dev/null
-if [ $? == 0 ]; then
-    install_java13
-else
-    echo "JDK 13 found."
-fi
+# Reset variables
+echo "Set JAVA_HOME in ~/.bash_profile (point to JDK 8)."
+{
+  sed -i '' '/JAVA_HOME/d' "$HOME"/.bash_profile
+  echo "export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)" >>"$HOME"/.bash_profile
+  source "$HOME"/.bash_profile
+} &>"$HOME"/logs/install-java"$i".logs

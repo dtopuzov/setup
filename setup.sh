@@ -63,7 +63,7 @@ enable_developer_mode() {
 
 install_brew() {
     set +e
-    $(brew -v | grep Homebrew &> /dev/null)
+    $(brew -v 2> /dev/null | grep Homebrew > /dev/null 2>&1)
     EXIT_CODE=$?
     set -e
     if [ ${EXIT_CODE} == 0 ]; then
@@ -136,6 +136,5 @@ install_brew
 
 "$dir/node/install-node.sh"
 "$dir/appium/install-appium.sh"
-"$dir/tns/install-nativescript.sh"
 
 echo "Setup completed!"

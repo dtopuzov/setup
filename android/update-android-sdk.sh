@@ -42,7 +42,7 @@ update_sdk() {
         print_and_execute "--licenses"
         print_and_execute "platform-tools"
         print_and_execute "tools"
-        print_and_execute "build-tools;29.0.0"
+        print_and_execute "build-tools;29.0.3"
         print_and_execute "build-tools;28.0.3"
         print_and_execute "platforms;android-29"
         print_and_execute "platforms;android-28"

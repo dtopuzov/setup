@@ -55,9 +55,8 @@ Notes:
 List of installed software:
 
 - Homebrew
-- NodeJS (10)
+- NodeJS 12
 - Maven 
-- Open JDK 8 and 12 (default is 8)
+- Open JDK 8, 11 and 13
 - Android SDK (including emulator images)
 - Appium (and all of its dependencies)
-- NativeScript CLI (and all of its dependencies)

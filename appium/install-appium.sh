@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source $HOME/.bash_profile
-APPIUM_VERSION="1.15.1"
+APPIUM_VERSION="1.16.0"
 
 install_ios_deps() {
     echo "Install Appium dependencies for iOS."
@@ -62,7 +62,7 @@ install_appium() {
 }
 
 set +e
-$(appium -v | grep $APPIUM_VERSION &> /dev/null)
+$(appium -v 2> /dev/null | grep $APPIUM_VERSION > /dev/null 2>&1)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then

@@ -11,11 +11,12 @@ install() {
     } &> "$HOME/logs/install-maven.log"
 }
 
-# check if maven@3 is installed
-RESULT=$(mvn -version -v 13 2>&1)
-echo $RESULT | grep '3.0' &> /dev/null
-if [ $? == 0 ]; then
-    install
-else
+set +e
+$(mvn -version 2> /dev/null | grep 3 > /dev/null 2>&1)
+EXIT_CODE=$?
+set -e
+if [ $EXIT_CODE == 0 ]; then
     echo "Maven 3 found."
+else
+    install
 fi

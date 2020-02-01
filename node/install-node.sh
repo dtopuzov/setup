@@ -22,6 +22,7 @@ install() {
         brew uninstall --force node
         brew uninstall --force node@8
         brew uninstall --force node@10
+        brew uninstall --force node@12
 
         # install node
         brew install node@12 -f
@@ -37,7 +38,7 @@ reset_variables
 source $HOME/.bash_profile
 
 set +e
-$(node -v | grep 12. &> /dev/null)
+$(node -v 2> /dev/null | grep 12. &> /dev/null)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then
