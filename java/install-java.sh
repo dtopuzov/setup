@@ -25,7 +25,7 @@ for i in "${arr[@]}"; do
     {
       # Handle Java 1.8 is acutally installed with adoptopenjdk8
       if [[ "$i" == "1.8" ]]; then
-        "$i" = "8"
+        "$i"="8"
       fi
 
       brew tap adoptopenjdk/openjdk

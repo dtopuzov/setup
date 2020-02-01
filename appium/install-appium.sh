@@ -62,7 +62,7 @@ install_appium() {
 }
 
 set +e
-$(appium -v | grep $APPIUM_VERSION > /dev/null 2>&1)
+$(appium -v 2> /dev/null | grep $APPIUM_VERSION > /dev/null 2>&1)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then

@@ -12,7 +12,7 @@ install() {
 }
 
 set +e
-$(mvn -version | grep 3 > /dev/null 2>&1)
+$(mvn -version 2> /dev/null | grep 3 > /dev/null 2>&1)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then
