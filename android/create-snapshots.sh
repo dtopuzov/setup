@@ -30,7 +30,7 @@ take_snapshots() {
 
         # take snapshot
         echo "Take snapshot of $EMU"
-        { echo "auth $(cat $HOME/.emulator_console_auth_token)"; echo "avd snapshot save clean_boot"; sleep 10; } | telnet localhost 5554 >/dev/null 2>&1
+        { echo "auth $(cat $HOME/.emulator_console_auth_token)"; echo "avd snapshot save clean_state"; sleep 10; } | telnet localhost 5554 >/dev/null 2>&1
 
         # kill
         kill_emulators

@@ -34,16 +34,12 @@ update_images() {
         download "system-images;android-22;google_apis;x86"
         download "system-images;android-21;google_apis;x86"
         download "system-images;android-19;google_apis;x86"
-        download "system-images;android-18;default;x86"
-        download "system-images;android-17;default;x86"
     } &> $HOME/logs/update-android-emulator-images.logs
 }
 
 create() {
     echo "Create Emulators"
     {
-        echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "GalaxyNexusApi17" -k "system-images;android-17;default;x86" -b "default/x86" -c "256M" -f
-        echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "GalaxyNexusApi18" -k "system-images;android-18;default;x86" -b "default/x86" -c "256M" -f
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus4Api19" -k "system-images;android-19;google_apis;x86" -b "google_apis/x86" -c "256M" -f
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus4Api21" -k "system-images;android-21;google_apis;x86" -b "google_apis/x86" -c "256M" -f
         echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus5Api22" -k "system-images;android-22;google_apis;x86" -b "google_apis/x86" -c "256M" -f
@@ -60,8 +56,6 @@ create() {
 configure() {
     echo "Configure Emulators"
     {
-        configure_avd "GalaxyNexusApi17" "GalaxyNexus"
-        configure_avd "GalaxyNexusApi18" "GalaxyNexus"
         configure_avd "Nexus4Api19" "Nexus4"
         configure_avd "Nexus4Api21" "Nexus4"
         configure_avd "Nexus5Api22" "Nexus5"

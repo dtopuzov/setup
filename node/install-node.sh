@@ -22,6 +22,7 @@ install() {
         brew uninstall --force node
         brew uninstall --force node@8
         brew uninstall --force node@10
+        brew uninstall --force node@12
 
         # install node
         brew install node@12 -f
