@@ -136,6 +136,5 @@ install_brew
 
 "$dir/node/install-node.sh"
 "$dir/appium/install-appium.sh"
-"$dir/tns/install-nativescript.sh"
 
 echo "Setup completed!"
