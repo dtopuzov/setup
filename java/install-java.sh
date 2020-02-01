@@ -7,6 +7,7 @@
 #
 ########################################################
 # shellcheck disable=SC1090
+# shellcheck disable=SC2140
 # shellcheck disable=SC2181
 
 source "$HOME"/.bash_profile
@@ -18,9 +19,13 @@ echo "export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)" >>"$HOME"/.bash_profile
 # Install JDKs
 declare -a arr=("1.8" "11" "13")
 for i in "${arr[@]}"; do
-  RESULT=$(/usr/libexec/java_home -v 13 2>&1)
-  echo "$RESULT" | grep 'Unable to find' &>/dev/null
-  if [ $? == 0 ]; then
+  set +e
+  /usr/libexec/java_home -v "$i" > /dev/null 2>&1
+  EXIT_CODE=$?
+  set -e
+  if [ $EXIT_CODE == 0 ]; then
+    echo "JDK $i found."
+  else
     echo "Install Open JDK $i."
     {
       # Handle Java 1.8 is acutally installed with adoptopenjdk8
@@ -32,8 +37,6 @@ for i in "${arr[@]}"; do
       brew cask install adoptopenjdk"$i" -f
       brew untap adoptopenjdk/openjdk
     } &>"$HOME"/logs/install-java"$i".logs
-  else
-    echo "JDK $i found."
   fi
 done
 
