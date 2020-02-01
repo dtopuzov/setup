@@ -26,7 +26,7 @@ take_snapshots() {
         # boot
         echo "Take snapshot for $EMU."
         $ANDROID_HOME/emulator/emulator -avd $EMU -wipe-data -no-boot-anim -no-audio -no-snapshot-load & >/dev/null 2>&1
-        until $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell dumpsys window windows | grep -E 'mFocusedApp' | grep -q 'ActivityRecord' >/dev/null 2>&1;
+        until $ANDROID_HOME/platform-tools/adb -s emulator-5554 shell dumpsys window | grep -E 'mFocusedApp' | grep -q 'ActivityRecord' >/dev/null 2>&1;
         do
             echo "Wait $EMU to boot..."
             sleep 5
