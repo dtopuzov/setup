@@ -20,7 +20,7 @@ for i in "${arr[@]}"; do
   EXIT_CODE=$?
   set -e
   if [ $EXIT_CODE == 0 ]; then
-    echo "JDK $i found."
+    echo "Open JDK $i found."
   else
     echo "Install Open JDK $i."
     {
