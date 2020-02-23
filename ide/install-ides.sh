@@ -13,4 +13,3 @@ sudo rm -rf /Applications/Visual\ Studio\ Code.app
 brew cask install visual-studio-code
 brew cask install pycharm-ce
 brew cask install intellij-idea-ce
-
