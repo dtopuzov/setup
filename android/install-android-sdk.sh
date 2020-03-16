@@ -22,7 +22,6 @@ reset_variables() {
       echo "Add ANDROID_HOME variable."
       echo 'export ANDROID_HOME=/usr/local/share/android-sdk' >>$HOME/.bash_profile
       echo 'export ANDROID_SDK_ROOT=/usr/local/share/android-sdk' >>$HOME/.bash_profile
-      echo 'export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin' >>$HOME/.bash_profile
 
       # reaload .bash_profile
       source $HOME/.bash_profile
