@@ -14,7 +14,7 @@ install() {
 set +e
 $(mvn -version 2>/dev/null | grep 3 >/dev/null 2>&1)
 EXIT_CODE=$?
-set -eó
+set -e
 if [ $EXIT_CODE == 0 ]; then
   echo "Maven 3 found."
 else
