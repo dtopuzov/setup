@@ -126,6 +126,8 @@ clean_bash_profile
 enable_developer_mode
 install_brew
 
+"$dir/dotnet/install-dotnet.sh"
+
 "$dir/java/install-java.sh"
 "$dir/java/install-maven.sh"
 
