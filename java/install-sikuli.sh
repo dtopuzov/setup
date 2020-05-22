@@ -27,13 +27,13 @@ install_sikuli() {
 
       # install sikuli deps
       sudo apt-get install tesseract-ocr -y
-      sudo apt-get install libopencv3.2-java -y
-      sudo ln -s /usr/lib/jni/libopencv_java320.so /usr/lib/libopencv_java.so
+      sudo apt-get install libopencv4.2-java -y
+      sudo ln -s /usr/lib/jni/libopencv_java420.so /usr/lib/libopencv_java.so
     fi
 
     # install sikuli
     mkdir -p $HOME/tools/sikuli
-    curl -L https://launchpad.net/sikuli/sikulix/2.0.2/+download/sikulix-2.0.2.jar -o sikulix.jar
+    curl -L https://launchpad.net/sikuli/sikulix/2.0.4/+download/sikulixide-2.0.4.jar -o sikulix.jar
     mv sikulix.jar $HOME/tools/sikuli/sikulix.jar
 
     # install jython
