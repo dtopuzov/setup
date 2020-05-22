@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Notes:
+# Android SDK needs JDK 1.8.
+# See: 
+# https://stackoverflow.com/questions/53076422/getting-android-sdkmanager-to-run-with-java-11
+# https://medium.com/@parsher/flutter-android-sdkmanager-update-with-jdk-12-ad8098165472
+
 verify_android_home() {
   android=$(echo $ANDROID_HOME)
   if [[ $android != "" ]]; then
