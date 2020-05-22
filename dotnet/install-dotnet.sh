@@ -25,7 +25,7 @@ install() {
 }
 
 set +e
-$(dotnet --version | grep $DOTNET_VERSION. &> /dev/null)
+$(dotnet --version | grep $DOTNET_VERSION >/dev/null 2>&1)
 EXIT_CODE=$?
 set -e
 if [ $EXIT_CODE == 0 ]; then
