@@ -2,6 +2,11 @@
 
 source $HOME/.bash_profile
 
-brew cask uninstall pycharm-ce -f
-sudo rm -rf /Applications/PyCharm*
-brew cask install pycharm-ce
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew cask uninstall pycharm-ce -f
+    sudo rm -rf /Applications/PyCharm*
+    brew cask install pycharm-ce
+else
+    sudo snap remove code
+    sudo snap install --classic code
+fi

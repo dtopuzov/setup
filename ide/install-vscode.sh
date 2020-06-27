@@ -3,10 +3,15 @@
 source $HOME/.bash_profile
 
 # Uninstall & Install
-brew cask uninstall visual-studio-code -f
-sudo rm -rf /Applications/Visual\ Studio\ Code.app
-rm -rf ~/.vscode/extensions
-brew cask install visual-studio-code
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew cask uninstall visual-studio-code -f
+    sudo rm -rf /Applications/Visual\ Studio\ Code.app
+    rm -rf ~/.vscode/extensions
+    brew cask install visual-studio-code
+else
+    sudo snap remove code
+    sudo snap install --classic code
+fi
 
 # Install Extensions
 code --install-extension christian-kohler.npm-intellisense
