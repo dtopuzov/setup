@@ -7,6 +7,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     sudo rm -rf /Applications/IntelliJ*
     brew cask install intellij-idea-ce
 else
-    sudo snap remove pycharm-community
-    sudo snap install pycharm-community --classic
+    sudo snap remove intellij-idea-community
+    sudo snap install intellij-idea-community --classic 
 fi

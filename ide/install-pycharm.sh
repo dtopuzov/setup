@@ -7,6 +7,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     sudo rm -rf /Applications/PyCharm*
     brew cask install pycharm-ce
 else
-    sudo snap remove code
-    sudo snap install --classic code
+    sudo snap remove pycharm-community
+    sudo snap install pycharm-community --classic
 fi
