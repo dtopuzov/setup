@@ -26,3 +26,4 @@ code --install-extension jmrog.vscode-nuget-package-manager
 code --install-extension ms-dotnettools.csharp
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscode-icons-team.vscode-icons
+code --install-extension streetsidesoftware.code-spell-checker
