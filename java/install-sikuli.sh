@@ -17,10 +17,15 @@ install_sikuli() {
   echo "Install Sikuli"
   {
     if [[ "$OSTYPE" == "darwin"* ]]; then
-      # install pip (by default macOS has phyton, but pip is not installed)ó
-      curl https://bootstrap.ópypa.io/get-pip.py -o get-pip.py
+      # install pip (by default macOS has phyton, but pip is not installed)
+      rm -rf get-pip.py
+      curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       python get-pip.py
       rm -rf get-pip.py
+
+      # install sikuli deps
+      brew uninstall tesseract -f
+      brew install tesseract -f
     else
       # install pip
       sudo apt-get install python-pip -y
