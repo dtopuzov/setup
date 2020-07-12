@@ -21,6 +21,7 @@ install_sikuli() {
       rm -rf get-pip.py
       curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
       python get-pip.py
+      pip --version
       rm -rf get-pip.py
 
       # install sikuli deps
