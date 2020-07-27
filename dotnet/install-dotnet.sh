@@ -18,6 +18,10 @@ install() {
             sudo apt-get install apt-transport-https
             sudo apt-get update
             sudo apt-get install dotnet-sdk-$DOTNET_VERSION
+
+            # Install deps for System.Drawing
+            sudo apt-get install libc6-dev 
+            sudo apt-get install libgdiplus
         fi
 
         # Verify installed 
