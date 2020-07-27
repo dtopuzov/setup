@@ -7,6 +7,7 @@ install() {
     {
         if [[ "$OSTYPE" == "darwin"* ]]; then
             brew cask install dotnet-sdk
+            brew install mono-libgdiplus
         else
             # Add Microsoft registry
             wget -q https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
