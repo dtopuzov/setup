@@ -30,7 +30,7 @@ for i in "${arr[@]}"; do
       fi
 
       brew tap adoptopenjdk/openjdk
-      brew cask install adoptopenjdk"$i" -f
+      brew cask install adoptopenjdk"$i"
       brew untap adoptopenjdk/openjdk
     } &>"$HOME"/logs/install-java"$i".logs
   fi

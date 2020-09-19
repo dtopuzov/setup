@@ -4,8 +4,9 @@ source $HOME/.bash_profile
 
 # Uninstall & Install
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew cask uninstall visual-studio-code -f
+    brew cask uninstall visual-studio-code
     sudo rm -rf /Applications/Visual\ Studio\ Code.app
+    rm -rf /usr/local/bin/code
     rm -rf ~/.vscode/extensions
     brew cask install visual-studio-code
 else

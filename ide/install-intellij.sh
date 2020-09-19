@@ -3,7 +3,7 @@
 source $HOME/.bash_profile
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew cask uninstall intellij-idea-ce -f
+    brew cask uninstall intellij-idea-ce
     sudo rm -rf /Applications/IntelliJ*
     brew cask install intellij-idea-ce
 else
