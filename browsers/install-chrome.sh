@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Install Google Chrome" {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Install Chrome not implemented on macOS"

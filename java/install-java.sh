@@ -24,7 +24,7 @@ for i in "${arr[@]}"; do
   else
     echo "Install Open JDK $i."
     {
-      # Handle Java 1.8 is acutally installed with adoptopenjdk8
+      # Handle Java 1.8 is actually installed with adoptopenjdk8
       if [[ "$i" == "1.8" ]]; then
         i="8"
       fi
