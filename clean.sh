@@ -57,7 +57,7 @@ clean_brew() {
 clean_pods() {
   echo "Clean Cocoapods."
   {
-    array=(1.7.3 1.7.2 1.7.1 1.7.0 1.6.2 1.6.1 1.6.0 1.5.3 1.5.2 1.5.1 1.5.0)
+    array=(1.9.3 1.9.2 1.9.1 1.9.0 1.8.4 1.8.3 1.8.2 1.8.1 1.8.0 1.7.5 1.7.4 1.7.3 1.7.2 1.7.1 1.7.0 1.6.2 1.6.1 1.6.0 1.5.3 1.5.2 1.5.1 1.5.0)
     for v in "${array[@]}"; do
       echo Y | sudo gem uninstall cocoapods -v $v >/dev/null 2>&1 || true
     done

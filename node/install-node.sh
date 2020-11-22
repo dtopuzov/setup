@@ -1,5 +1,5 @@
 # Define Node version constant
-export NODE_VERSION=12
+export NODE_VERSION=14
 
 reset_variables() {
   echo "Reset NodeJS variables."
