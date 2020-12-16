@@ -6,7 +6,7 @@ install() {
   echo "Install .NET Core SDK $DOTNET_VERSION."
   {
     if [[ "$OSTYPE" == "darwin"* ]]; then
-      brew cask install dotnet-sdk
+      brew install --cask dotnet-sdk
       brew install mono-libgdiplus
     else
       # Add Microsoft registry

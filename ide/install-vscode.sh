@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   sudo rm -rf /Applications/Visual\ Studio\ Code.app
   rm -rf /usr/local/bin/code
   rm -rf ~/.vscode/extensions
-  brew cask install visual-studio-code
+  brew install --cask visual-studio-code
 else
   sudo snap remove code
   sudo snap install --classic code
