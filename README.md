@@ -23,7 +23,11 @@ Optional scripts:
 
 ## Requirements
 
-Manually install latest official Xcode.
+Manually download and install latest official [Xcode](https://developer.apple.com/xcode/).
+
+Note:
+
+- Xcode installation can be also scripted with [xcinfo](https://github.com/xcodereleases/xcinfo).
 
 ## Usage
 
