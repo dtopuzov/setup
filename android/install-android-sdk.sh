@@ -76,5 +76,11 @@ fi
 
 # Accept Android SDK licenses
 source $HOME/.bash_profile
-echo "Accept Android SDK licenses."
-yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses &>$HOME/logs/install-android-sdk.log
+
+if test -f "$ANDROID_HOME/tools/bin/sdkmanager"; then
+    echo "Accept Android SDK licenses."
+    yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses &> $HOME/logs/install-android-sdk.log
+else
+  echo "Failed to install Android SDK!"
+  exit 1
+fi
