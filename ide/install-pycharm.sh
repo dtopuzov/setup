@@ -3,7 +3,7 @@
 source $HOME/.bash_profile
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  brew cask uninstall pycharm-ce
+  brew uninstall pycharm-ce -f
   sudo rm -rf /Applications/PyCharm*
   brew install --cask pycharm-ce
 else
