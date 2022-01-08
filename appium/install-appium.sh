@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source $HOME/.bash_profile
-APPIUM_VERSION="1.20.2"
+APPIUM_VERSION="2.0.0-beta.23"
 
 install_ios_deps() {
   echo "Install Appium dependencies for iOS."
