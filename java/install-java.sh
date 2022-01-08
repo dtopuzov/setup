@@ -13,17 +13,18 @@
 source "$HOME"/.bash_profile
 
 # Install JDKs
-declare -a arr=("1.8" "11" "13")
+declare -a arr=("1.8" "11" "15")
 for i in "${arr[@]}"; do
   set +e
-  VERSION="$i" | cut -d "." -f2
-  /usr/libexec/java_home -v "$i" | grep "$VERSION" >/dev/null 2>&1
+  VERSION=$(echo $i | cut -d '.' -f2)
+  $(/usr/libexec/java_home -v "$i" 2>/dev/null | grep $VERSION >/dev/null 2>&1)
   EXIT_CODE=$?
   set -e
+
   if [ $EXIT_CODE == 0 ]; then
     echo "Open JDK $i found."
   else
-    echo "Install Open JDK $i."
+    echo "Install Open JDK $VERSION."
     {
       brew tap adoptopenjdk/openjdk
       brew install --cask adoptopenjdk"$VERSION"

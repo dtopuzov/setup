@@ -32,18 +32,12 @@ update_images() {
     download "system-images;android-25;google_apis_playstore;x86"
     download "system-images;android-24;google_apis_playstore;x86"
     download "system-images;android-23;google_apis;x86"
-    download "system-images;android-22;google_apis;x86"
-    download "system-images;android-21;google_apis;x86"
-    download "system-images;android-19;google_apis;x86"
   } &>$HOME/logs/update-android-emulator-images.logs
 }
 
 create() {
   echo "Create Emulators"
   {
-    echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus4Api19" -k "system-images;android-19;google_apis;x86" -b "google_apis/x86" -c "256M" -f
-    echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus4Api21" -k "system-images;android-21;google_apis;x86" -b "google_apis/x86" -c "256M" -f
-    echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus5Api22" -k "system-images;android-22;google_apis;x86" -b "google_apis/x86" -c "256M" -f
     echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus5Api23" -k "system-images;android-23;google_apis;x86" -b "google_apis/x86" -c "256M" -f
     echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus5XApi24" -k "system-images;android-24;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
     echo no | $ANDROID_HOME/tools/bin/avdmanager create avd -n "Nexus5XApi25" -k "system-images;android-25;google_apis_playstore;x86" -b "google_apis_playstore/x86" -c "256M" -f
@@ -58,9 +52,6 @@ create() {
 configure() {
   echo "Configure Emulators"
   {
-    configure_avd "Nexus4Api19" "Nexus4"
-    configure_avd "Nexus4Api21" "Nexus4"
-    configure_avd "Nexus5Api22" "Nexus5"
     configure_avd "Nexus5Api23" "Nexus5"
     configure_avd "Nexus5XApi24" "Nexus5X"
     configure_avd "Nexus5XApi25" "Nexus5X"

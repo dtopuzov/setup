@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export DOTNET_VERSION=3.1
+export DOTNET_VERSION=6.0
 
 install() {
   echo "Install .NET Core SDK $DOTNET_VERSION."
